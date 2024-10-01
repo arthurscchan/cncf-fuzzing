@@ -58,12 +58,12 @@ public class SamlMetadataParserFuzzer {
     try {
       // Initialise a StaxParser object
       StaxParser parser = null;
-
+      Integer test = data.consumeInt(1, 26);
       // Retrieve or create a random SAML Parser object
       // instance and run the parse method with the
       // random data provided by the XMLEventReader
       // object created above
-      switch (data.consumeInt(1, 26)) {
+      switch (test) {
         case 1:
           parser = SAMLEntityAttributesParser.getInstance();
         case 2:
@@ -117,14 +117,15 @@ public class SamlMetadataParserFuzzer {
         case 26:
           parser = SAMLSPSSODescriptorParser.getInstance();
       }
-
+      System.out.println(test);
       // Initialize a XMLEventReader with InputStream source pointing
       // to a random byte array in UTF-8 encoding retrieved from the
       // FuzzedDataProvider
-      byte[] input = data.consumeRemainingAsString().getBytes(StandardCharsets.UTF_8);
+      String testa = data.consumeRemainingAsString();
+      byte[] input = testa.getBytes(StandardCharsets.UTF_8);
       ByteArrayInputStream bais = new ByteArrayInputStream(input);
       XMLEventReader reader = XMLInputFactory.newInstance().createXMLEventReader(bais);
-
+      System.out.println(testa);
       parser.parse(reader);
     } catch (ParsingException | XMLStreamException | RuntimeException e) {
       // Known exception
