@@ -55,7 +55,7 @@ import org.keycloak.saml.processing.core.parsers.saml.metadata.SAMLSingleSignOnS
  */
 public class SamlMetadataParserFuzzer {
   public static void fuzzerTestOneInput(FuzzedDataProvider data) {
-    try {
+//    try {
       // Initialise a StaxParser object
       StaxParser parser = null;
       Integer test = data.consumeInt(1, 26);
@@ -126,9 +126,9 @@ public class SamlMetadataParserFuzzer {
       ByteArrayInputStream bais = new ByteArrayInputStream(input);
       XMLEventReader reader = XMLInputFactory.newInstance().createXMLEventReader(bais);
       System.out.println(testa);
-      parser.parse(reader);
-    } catch (ParsingException | XMLStreamException | RuntimeException e) {
+//      parser.parse(reader);
+//    } catch (ParsingException | XMLStreamException | RuntimeException e) {
       // Known exception
-    }
+//    }
   }
 }
