@@ -54,7 +54,7 @@ import org.keycloak.saml.processing.core.parsers.saml.metadata.SAMLSingleSignOnS
  * random bytes in UTF-8 encoding and pass it as a source for the a random SAML parser to parse it.
  */
 public class SamlMetadataParserFuzzer {
-  public static void fuzzerTestOneInput(FuzzedDataProvider data) {
+  public static void fuzzerTestOneInput(FuzzedDataProvider data) throws Exception {
 //    try {
       // Initialise a StaxParser object
       StaxParser parser = null;
