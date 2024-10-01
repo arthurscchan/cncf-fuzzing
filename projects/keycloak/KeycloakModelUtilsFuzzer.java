@@ -87,6 +87,7 @@ public class KeycloakModelUtilsFuzzer {
         case 17:
           KeycloakModelUtils.normalizeGroupPath(data.consumeRemainingAsString());
         case 18:
+          System.out.println(data.consumeRemainingAsString());
           KeycloakModelUtils.getRoleFromString(
               BaseHelper.createRealmModel(data), data.consumeRemainingAsString());
         case 19:
