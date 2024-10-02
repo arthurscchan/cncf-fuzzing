@@ -65,6 +65,7 @@ public class ServicesUtilsFuzzer {
     try {
       // Randomly choose which utils method to invoke
       Integer choice = data.consumeInt(1, 7);
+      System.out.println(choice);
       switch (choice) {
         case 1:
           // Create certificate and crl from random data
